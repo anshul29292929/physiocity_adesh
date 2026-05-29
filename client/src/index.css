@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Outfit', sans-serif;
+    @apply bg-background text-textPrimary;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary text-white px-6 py-3 rounded-2xl font-semibold shadow-md hover:shadow-lg transition-all transform hover:-translate-y-1 active:scale-95;
+  }
+  .btn-secondary {
+    @apply bg-secondary text-white px-6 py-3 rounded-2xl font-semibold shadow-md hover:shadow-lg transition-all transform hover:-translate-y-1 active:scale-95;
+  }
+  .btn-accent {
+    @apply bg-accent text-white px-6 py-3 rounded-2xl font-semibold shadow-md hover:shadow-lg transition-all transform hover:-translate-y-1 active:scale-95 glow-accent;
+  }
+  .glass {
+    @apply bg-white/70 backdrop-blur-md border border-white/20;
+  }
+  .glow-accent {
+    box-shadow: 0 0 15px rgba(249, 115, 22, 0.4);
+  }
+}
+
+
+
+@layer utilities {
+  .mesh-gradient {
+    background-color: #ffffff;
+    background-image: 
+      radial-gradient(at 15% 15%, hsla(179, 84%, 44%, 0.15) 0px, transparent 50%),
+      radial-gradient(at 85% 15%, hsla(250, 84%, 44%, 0.1) 0px, transparent 50%),
+      radial-gradient(at 50% 50%, hsla(179, 84%, 44%, 0.05) 0px, transparent 50%),
+      radial-gradient(at 15% 85%, hsla(250, 84%, 44%, 0.1) 0px, transparent 50%),
+      radial-gradient(at 85% 85%, hsla(179, 84%, 44%, 0.15) 0px, transparent 50%);
+  }
+
+  .grainy-texture {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .grainy-texture::before {
+    content: "";
+    position: absolute;
+    top: -100%;
+    left: -100%;
+    width: 300%;
+    height: 300%;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3BaseFilter id='noiseFilter'%3BfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3Brect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.03;
+    pointer-events: none;
+    z-index: 50;
+    transition: opacity 0.3s ease;
+  }
+
+
+  .font-serif {
+    font-family: 'Playfair Display', serif;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    border-radius: 10px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 10px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+  }
+}
